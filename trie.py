@@ -1,4 +1,5 @@
 class node:
+    
     def __init__(self,data):
         self.isTerminal = False
         self.data = data
