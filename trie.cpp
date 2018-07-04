@@ -31,9 +31,9 @@ using namespace std;
  			char ch = word[i];
  			if (temp->h.count(ch)==0){
  				node* child = new node(ch);
- 				temp->h[ch] = child;
+ 				temp->h[ch] = child; //its basically temp->next = child
  				temp = child;
- 			}
+ 	
  			else{
  				temp = temp->h[ch];
  			}
@@ -66,8 +66,8 @@ using namespace std;
  		t.addWord(word[i]);
  	}
 
- 	char searchword[100];
- 	cin.getline(searchword,100);
+ 	char searchword[100]
+; 	cin.getline(searchword,100);
 
  	if(t.search(searchword)){
  		cout<<searchword<<" found"<<endl;

@@ -41,22 +41,36 @@ class LinkedList:
         temp.next = temp.next.next
         del_node.next = None
 
-    def reverse_recursive(self):
-        #
+    
     def reverse_iterative(self):
-        #
+        if self.head==None: return
+
+        cur = self.head
+        prev = None
+        
+        while cur.next!=None:
+            temp = cur.next
+            cur.next = prev
+            prev = cur
+            cur = temp
+            
+        cur.next = prev
+        self.head = cur
+
+    def reverse_recursive(self):
             
 
 if __name__ == '__main__':
     
-    obj = LinkedList()
-    #insert nodes
+    ll = LinkedList()
     x = [1,2,3,45,44,8,9]
     for i in x:
-        obj.insert_at_end(i)
-    obj.print()
-    obj.delete_at_nth(4)
-    obj.print()
+        ll.insert_at_end(i)
+    ll.print()
+    ll.delete_at_nth(4)
+    ll.print()
+    ll.reverse_iterative()
+    ll.print()
     
 
 
