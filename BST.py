@@ -46,13 +46,10 @@ class Tree:
 
     def findMin(self,root):
         if root==None: return
-        else:
-            if root.left==None:
-                return root.data
-            else:
-                self.findMin(root.left)
+        if root.left==None:
+            return root.data
+        return self.findMin(root.left)
         
-
 
 if __name__ == '__main__':
 
@@ -66,5 +63,7 @@ if __name__ == '__main__':
     t.inorder(t.root)
     print("Postorder Traversal")
     t.postorder(t.root)
-    print("Min Val in the BST is:", t.findMin(t.root))
+    print("----------------------")
+    x = t.findMin(t.root)
+    print("Min Val in the BST is:", x)
     #t.levelorder()
