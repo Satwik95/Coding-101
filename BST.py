@@ -49,7 +49,31 @@ class Tree:
         if root.left==None:
             return root.data
         return self.findMin(root.left)
-        
+    
+    def findMax(self,root):
+        if root==None: return
+        if root.right==None:
+            return root.data
+        return self.findMax(root.right)
+
+    def findHeight(self,root):
+        if root==None:return -1
+        lh = self.findHeight(root.left)
+        rh = self.findHeight(root.right)
+        return max(lh,rh) + 1
+
+    def levelOrder(self,root):
+        if root==None:return
+        q = []
+        q.append(root)
+        while not not q:
+            root = q[0]
+            if root.left!=None:
+                q.append(root.left)
+            if root.right!=None:
+                q.append(root.right)
+            print(root.data)
+            q.pop(0)
 
 if __name__ == '__main__':
 
@@ -63,7 +87,11 @@ if __name__ == '__main__':
     t.inorder(t.root)
     print("Postorder Traversal")
     t.postorder(t.root)
+    print("levelorder Traversal")
+    t.levelOrder(t.root)
     print("----------------------")
-    x = t.findMin(t.root)
-    print("Min Val in the BST is:", x)
+    print("Min Val in the BST is:", t.findMin(t.root))
+    print("Max Val in the BST is:", t.findMax(t.root))
+    print("Height of the tree is, i.e the max no of steps from the root to bottom most leaf node:", t.findHeight(t.root))
+    
     #t.levelorder()
