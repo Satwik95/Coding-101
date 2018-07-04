@@ -57,9 +57,36 @@ class LinkedList:
         cur.next = prev
         self.head = cur
 
-    def reverse_recursive(self):
-            
+    def reverse_rec(self,cur):
+        if self.head==None:
+            return
+        
+        if cur.next==None:
+            self.head = cur
+            return
+        
+        self.reverse_rec(cur.next)
+        temp = cur.next
+        temp.next = cur
+        cur.next = None
 
+    def reverse_stack(self):
+        if self.head==None: return
+
+        cur = self.head
+        stack = []
+        while cur!=None:
+            stack.append(cur)
+
+        print(stack)
+        cur = stack.pop()
+        self.head = cur
+        while not not stack:
+            cur.next = stack.pop
+            cur = cur.next
+
+        cur.next = None
+    
 if __name__ == '__main__':
     
     ll = LinkedList()
@@ -71,6 +98,8 @@ if __name__ == '__main__':
     ll.print()
     ll.reverse_iterative()
     ll.print()
-    
-
+    ll.reverse_rec(ll.head)
+    ll.print()
+    ll.reverse_stack()
+    ll.print()
 
