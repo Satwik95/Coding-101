@@ -21,7 +21,6 @@ class Trie:
                 temp = child
             else:
                 temp = temp.h[ch]
-
         temp.isTerminal = True
 
     def search(self,word):
@@ -31,14 +30,12 @@ class Trie:
             if ch not in temp.h:
                 return False
             else:
-                temp = temp.h[ch]
-                
+                temp = temp.h[ch]  
         return temp.isTerminal
                         
 words = ["apple","ape","coder","satwik"]
 global root
 t = Trie()
-
 for x in words:
     t.addWord(x)
 
