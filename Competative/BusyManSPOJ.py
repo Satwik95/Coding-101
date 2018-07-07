@@ -1,3 +1,4 @@
+# your code goes here
 def takeSecond(elem):
     return elem[1]
 
@@ -19,8 +20,9 @@ if __name__ == "__main__":
         N = int(input())
         activities = []
         for i in range(0,N):
-                n = int(input())
-                m = int(input())
-                activities.append([n,m])
-        max_act = find_max_act(activities)
-        print("Max no of activities = ",max_act)
+                m,n = input().split(" ")
+                m = int(m)
+                n = int(n)
+                activities.append([m,n])
+        print(find_max_act(activities))
+        T-=1
