@@ -14,30 +14,31 @@ Graph =     { "a" : ["c"],
           "c" : ["e", "d"],
           "e" : ["b"],
           "d" : [],
-        "f" : ['c']
+        "f" : ["c"]
         }
 
 V = ['a','b','c','d','e','f']
 
-def dfs_visit(s,G):
-    visited = []
-    for v in G:
-        if v not in parent:
-            parent[v] = s
-            visited.append(v)
-            print(s+"-->"+v)
-            dfs_visit(v,Graph[v])
-        if v in visited:
-            #print(back_edge)
-            back_edge[v] = s
-
-
-def DFS(V,Graph):
-    parent = {}
-    for s in V:
-        if s not in parent:
-            parent[s] = None
-            dfs_visit(s,Graph[s])
+def dfs_util(u,visited,parent):
+    visited[u] = 1
+    print(u+"->",end="")
+    for v in Graph[u]:
+        if v not in visited:
+            parent[v]=u
+            dfs_util(v,visited,parent)
             
-x = DFS(V,Graph)
-print(back_edge)
+def dfs(src):
+    visited = {}
+    parent={}
+    parent[src]=None
+    connected_comp = 1
+    dfs_util(src,visited,parent)
+    for v in V:
+        if v not in visited:
+            dfs_util(v,visited,parent)
+            connected_comp+=1
+    print("Total Connected Comp are:",connected_comp)
+    print("Parents",parent)
+
+
+dfs("a")

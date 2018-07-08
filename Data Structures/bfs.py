@@ -17,9 +17,12 @@ def bfs(s,graph):
                     next.append(v)
         frontier = next
         i+=1
-
-    print(parent)
-    print(level)
+    #for printing out the path from a source to the detination
+    temp = "d"#set any destination
+    while temp!=s:
+        print(str(temp)+"<-",end="")
+        temp = parent[temp]
+    print(str(s),end="")
 
 graph = { "a" : ["c"],
           "b" : ["c"],
