@@ -1,4 +1,4 @@
-def binarySearch(val,p):
+def sqRt(val,p):
     start=0
     end=val
     ans = None
@@ -23,4 +23,4 @@ def binarySearch(val,p):
     return x%ans
 
 if __name__ == "__main__":
-    print(binarySearch(3,6))
+    print(sqRt(3,6))
