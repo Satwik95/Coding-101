@@ -15,8 +15,6 @@ def FloodFill(board,i,j,ch,color):
     #fill color
     board[i][j]=color
     for k in range(0,4):
-        #dfs search
-        print(i+dx[k],j+dy[k])
         FloodFill(board,i+dx[k],j+dy[k],ch,color)
 
 if __name__=="__main__":
