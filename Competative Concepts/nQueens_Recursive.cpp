@@ -56,7 +56,17 @@ bool nqueens(int board[][10],int row,int n)
             }cout<<endl;
         }
         return true;
+        //on return false in the base case, ill be getting all the possible configs
+        //return false;
     }
+    //for every initial pos of queen in the first row there is a different valid config
+    //in the first function call we are actually checking for the first row,and the recursively going to the next row
+    //EXIT condition, if row=n, which means in one of the recursive call all the queens are placed, now this final rec fn will return true to 
+    //return statement stops execution and returns to the calling function
+    //so for n-1 rows ho gaya toh 1st ke liye true return hoga
+    //agar nahi hua toh i.e false return hua, toh j will increment and so on if the entire loop runs n2time for the first function call
+    //hence no valid config at all
+    //but in this code I am only priniting one form of config, how to find all forms of config?
     for(int i=0;i<n;i++)
     {
         for(int j=0;j<n;j++)
@@ -77,13 +87,11 @@ int main()
     int board[10][10];
     int n;
     cin>>n;
-    
     for(int i=0;i<n;i++){
         for(int j=0;j<n;j++){
             board[i][j]=0;
         }
     }
     cout<<nqueens(board,0,n);
-
     return 0;
 }
