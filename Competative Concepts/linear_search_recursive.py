@@ -1,4 +1,4 @@
-""" returning index val"""
+""" returning index+1 val"""
 def f(a,val):
     global i
     i+=1
@@ -10,4 +10,4 @@ def f(a,val):
 
 i=0
 a = [1,2,3,4,5]
-print(f(a,6))
+print(f(a,3))
