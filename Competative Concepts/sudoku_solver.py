@@ -1,6 +1,6 @@
 import math
 import sys
-sys.setrecursionlimit(1500)
+#sys.setrecursionlimit(1500)
 def canPlace(board,i,j,n,number):
     #for col and row
     for x in range(0,n):
@@ -27,7 +27,7 @@ def sudoku(board,i,j,n):
         return True
     #going to next row
     if j==n:
-        sudoku(board,i+1,0,n)
+        return sudoku(board,i+1,0,n)
     #pre filled case
     if board[i][j]!=0:
         return sudoku(board,i,j+1,n)
