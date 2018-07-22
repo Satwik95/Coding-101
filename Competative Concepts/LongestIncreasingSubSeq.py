@@ -1,4 +1,4 @@
-def LongestCommonSubSeq(nums):
+def LIS(nums):
     dp=[1]*len(nums)
     best=-1
     for i in range(1,len(nums)):
@@ -11,4 +11,4 @@ if __name__=="__main__":
     nums=[]
     print("Enter the numbers")
     nums = [x for x in input().split(" ")]
-    print(LongestCommonSubSeq(nums))
+    print(LIS(nums))
