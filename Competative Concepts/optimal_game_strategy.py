@@ -16,7 +16,7 @@ def f(i,j):
     q1 = a[i]+ min(f(i+2,j),f(i+1,j-1))
     #player one selects from the jth end
     q2 = a[j]+min(f(i,j-2),f(i+1,j-1))
-    dp[i][j]=min(q1,q2)
+    dp[i][j]=max(q1,q2)
     return dp[i][j]
-f(0,len(a))
-print(dp[m-1][m-1])
+print(f(0,m-1))
+
