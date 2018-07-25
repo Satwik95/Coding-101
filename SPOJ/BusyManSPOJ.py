@@ -1,28 +1,29 @@
 # your code goes here
-def takeSecond(elem):
-    return elem[1]
+def util(x):
+    return x[1]
 
 def find_max_act(act):
-    sorted_act = sorted(act,key=takeSecond)
+    sorted_act = sorted(act,key=util)
     count=1
-    for i in range(0,len(sorted_act)-1): 
-        cur_end = sorted_act[i][1]
-        print(cur_end)
-        next_act_start = sorted_act[i+1][0]
-        print(next_act_start)
-        if next_act_start>=cur_end:
+    prev_end_time = sorted_act[0][1]
+    for i in range(1,len(sorted_act)): 
+        cur_act_start = sorted_act[i][0]
+        if cur_act_start>=prev_end_time:
             count+=1
+            prev_end_time = sorted_act[i][1]
     return count
 
 if __name__ == "__main__":
-    T = int(input())
-    while T:
+    cases = int(input())
+    j=1
+    result = []
+    while j<=cases:
         N = int(input())
         activities = []
         for i in range(0,N):
-                m,n = input().split(" ")
-                m = int(m)
-                n = int(n)
+                m,n = map(int,input().split(" "))
                 activities.append([m,n])
-        print(find_max_act(activities))
-        T-=1
+        result.append(find_max_act(activities))
+        j+=1
+    for x in result:
+       print(x)

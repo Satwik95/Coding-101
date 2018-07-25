@@ -1,18 +1,17 @@
-Graph =     { "a" : ["c"],
+"""Graph =     { "a" : ["c"],
           "b" : ["c"],
           "c" : ["a", "b", "d", "e"],
           "d" : ["c"],
           "e" : ["c"],
-          "f" : []
-        }
-"""
+          "f" : []"""
+        
 Graph =     { "a" : ["c"],
             "b" : ["c"],
           "c" : ["e", "d"],
-          "e" : ["b"],
+          "e" : [],
           "d" : [],
         "f" : ["c"]
-        }"""
+        }
 
 V = ['a','b','c','d','e','f']
 top_sort = []
@@ -26,7 +25,8 @@ def dfs_util(u,visited,parent):
             dfs_util(v,visited,parent)
             #at this point when we are returning from v, 
             #that means all the nodes dependent on v have been visited
-            top_sort.insert(0,v)
+            #do top sort when callinf dfs from one source
+            #top_sort.insert(0,v)
         elif v in visited and v!=parent[u]:
             global flag
             flag=1
@@ -60,10 +60,8 @@ if flag==1:
     print("Cycle exists")
 else:
     print("No cycle")
-
-
     
-#print("The topological sort is:",end=" ")
-#for t in top_sort:
- #   print(t,end="->")
-#print("Finish")
+print("The topological sort is:",end=" ")
+for t in top_sort:
+   print(t,end="->")
+print("Finish")

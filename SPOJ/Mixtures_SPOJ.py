@@ -1,6 +1,5 @@
-nums = []
-dp = [[-1 for x in range(10)]for y in range(10)]
 import sys
+
 def custsum(s,e):
     res=0
     for i in range(s,e+1):
@@ -22,7 +21,7 @@ def minSmoke(i,j):
 
     return dp[i][j]
 
-if __name__=="__main__":
-    n=int(input())
-    nums = [int(x) for x in input().split(" ")]
-    print(minSmoke(0,n-1))
+n=int(input())
+nums = [int(x) for x in input().split(" ")]
+dp = [[-1 for x in range(n)]for y in range(n)]
+print(minSmoke(0,n-1))
