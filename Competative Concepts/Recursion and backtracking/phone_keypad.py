@@ -37,4 +37,4 @@ if __name__=="__main__":
     out = [""]*len(inp_str)
     obj = subset(inp_str,out)
     obj.sub_seq(0,0,N)
-    print(obj.final_out)
+    print(len(obj.final_out))

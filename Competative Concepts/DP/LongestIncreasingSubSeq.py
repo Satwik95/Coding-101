@@ -6,7 +6,7 @@ def LIS(nums):
             if nums[j]<=nums[i] and dp[i]<dp[j]+1:
                 dp[i]=dp[j]+1
         best=max(best,dp[i])
-    return dp,best
+    return best
 if __name__=="__main__":
     nums=[]
     print("Enter the numbers")

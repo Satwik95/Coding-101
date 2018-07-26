@@ -14,7 +14,6 @@ class subset:
         #base case
         if self.inp[i]=="\0":
             self.out[j]="\0"
-            print(i,j,end="-")
             self.cust_print(self.out)
             return
         #including
