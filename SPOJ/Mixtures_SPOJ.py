@@ -21,9 +21,6 @@ def minSmoke(nums,i,j):
 
     return dp[i][j]
 
-if __name__=="__main__":
-import sys
-
 def custsum(nums,s,e):
     res=0
     for i in range(s,e+1):
