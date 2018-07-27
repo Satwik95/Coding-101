@@ -21,9 +21,9 @@ def sudoku(board,i,j,n):
     if i==n:
         for i in range(0,n):
             for j in range(0,n):
-                print(board[i][j],end="|")
+                print("",board[i][j],end=" |")
             print("")
-            print("------------------")
+            print("------------------------------------")
         return True
     #going to next row
     if j==n:
@@ -39,8 +39,8 @@ def sudoku(board,i,j,n):
             subProblem = sudoku(board,i,j+1,n)
             if subProblem:
                 return True
-    #backtrack
-    board[i][j]=0
+            #backtrack
+            board[i][j]=0
     return False
                     
 board=[[5,3,0,0,7,0,0,0,0],

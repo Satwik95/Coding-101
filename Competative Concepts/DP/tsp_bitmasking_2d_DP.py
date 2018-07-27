@@ -18,6 +18,7 @@ def f(mask,pos):
             #b ka functional call, now c, ke liye call hua tha idhar, matlab 2 ho chuka, ab city++3 ko jaega
             #to next b se D pe jaega, and then we will have overlapping sub problems
             best=min(best,res)
+    print(pos)
     dp[mask][pos]=best
     return dp[mask][pos]
 

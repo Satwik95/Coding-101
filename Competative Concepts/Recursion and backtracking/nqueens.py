@@ -34,6 +34,7 @@ def nqueens(board,i,n):
                 else:
                     print(". ",end="")
             print("\n")
+        #return false will work for all the configs!
         return True
 
     for i in range(0,n):
@@ -42,6 +43,8 @@ def nqueens(board,i,n):
                 #if safe place the queen
                 board[i][j] = 1
                 nextQueen = nqueens(board,i+1,n)
+                #now while backtracking, if there is any i,j where it returns false,
+                #it will set the board[i][j]=0, and go back, and start again from that point
                 if nextQueen:
                     return True
             board[i][j]=0
