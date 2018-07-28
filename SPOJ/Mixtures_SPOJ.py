@@ -1,27 +1,6 @@
 import sys
 
-def custsum(nums,s,e):
-    res=0
-    for i in range(s,e+1):
-            res+=nums[i]
-            res%=100
-    return res
-
-def minSmoke(nums,i,j):
-    #base case
-    if i>=j:#single element
-        return 0
-    #if answer already completed
-    if dp[i][j]!=-1:
-        return dp[i][j]
-    #rec case, break exp at every val of k
-    dp[i][j]=sys.maxsize
-    for k in range(i,j+1):
-        dp[i][j]=min(dp[i][j],minSmoke(nums,i,k)+minSmoke(nums,k+1,j)+(custsum(nums,i,k)*custsum(nums,k+1,j)))
-
-    return dp[i][j]
-
-def custsum(nums,s,e):
+def custSum(nums,s,e):
     res=0
     for i in range(s,e+1):
             res+=nums[i]
