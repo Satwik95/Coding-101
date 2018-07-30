@@ -1,18 +1,32 @@
 import sys
 
-def buildTree(tree,a,index,s,e):
+def buildTree_min(tree,a,index,s,e):
     if s>e:
         return
     if s==e:
-        tree[index]=a[s]
+        tree[index]=a[s]    
         return
     #rec case
     mid = int((s+e)/2)
     buildTree(tree,a,2*index,s,mid)
     buildTree(tree,a,2*index+1,mid+1,e)
     tree[index]=min(tree[2*index],tree[2*index+1])
+
+def buildTree_max_sum(tree,a,index,s,e):
+    if s>e:
+        return
+    if s==e:
+        tree[index]=a[s]    
+        return
+    #rec case
+    mid = int((s+e)/2)
+    buildTree_max_sum(tree,a,2*index,s,mid)
+    buildTree_max_sum(tree,a,2*index+1,mid+1,e)
+    #here am just calculating the max possible sum in that array, but not considering the sequence.
+    #so I have to use the max sub array wala dp 
+    tree[index]= max(tree[2*index],tree[2*index+1],tree[2*index]+tree[2*index+1])
     
-def query(tree,index,s,e,qs,qe):
+def query_min(tree,index,s,e,qs,qe):
     #no overlap
     if qs>e or s>qe:
         return sys.maxsize
@@ -21,9 +35,22 @@ def query(tree,index,s,e,qs,qe):
         return tree[index]
     #partial overlap
     mid = int((s+e)/2)
-    leftans = query(tree,2*index,s,mid,qs,qe)
-    rightans = query(tree,2*index+1,mid+1,e,qs,qe)
+    leftans = query_min(tree,2*index,s,mid,qs,qe)
+    rightans = query_min(tree,2*index+1,mid+1,e,qs,qe)
     return min(leftans,rightans)
+
+def query_max(tree,index,s,e,qs,qe):
+    #no overlap
+    if qs>e or s>qe:
+        return -sys.maxsize
+    #complete overlap
+    if s>=qs and e<=qe:
+        return tree[index]
+    #partial overlap
+    mid = int((s+e)/2)
+    leftans = query_max(tree,2*index,s,mid,qs,qe)
+    rightans = query_max(tree,2*index+1,mid+1,e,qs,qe)
+    return max(leftans,rightans)
 
 def node_update(tree,index,s,e,i,val):
     #no overlapping
@@ -55,14 +82,15 @@ def range_update(tree,a,index,s,e,qs,qe,val):
     return
     
 if __name__=="__main__":        
-    a = [1,-2,0,3,-2,5]
+    a = [0,2,4,-6,7]
     tree = [None]*(4*len(a)+1)
-    buildTree(tree,a,1,0,len(a)-1)
+    #buildTree_min(tree,a,1,0,len(a)-1)
     qs=0
     qe=5
-    print(query(tree,1,0,len(a)-1,qs,qe))
-    node_update(tree,1,0,len(a)-1,4,4)
-    print("after node update",query(tree,1,0,len(a)-1,qs,qe))
-    range_update(tree,a,1,0,len(a)-1,2,4,3)
-    print("after range update",a)
-    
+    #print(query(tree,1,0,len(a)-1,qs,qe))
+    #node_update(tree,1,0,len(a)-1,4,4)
+    #print("after node update",query(tree,1,0,len(a)-1,qs,qe))
+    #range_update(tree,a,1,0,len(a)-1,2,4,3)
+    #print("after range update",a)
+    buildTree_max_sum(tree,a,1,0,len(a)-1)
+    print(query_max(tree,1,0,len(a)-1,qs,qe))
