@@ -20,7 +20,17 @@ def countInv(a,bit,N):
     return ans
 
 if __name__=="__main__":
-    a = [5,2,1,4,3]
-    N=len(a)
-    bit = [0]*(max(a)+1)
-    print(countInv(a,bit,N))
+    a = [100,2,-82,3,100]
+    b = sorted(set(a))
+    h = {}
+    i=1
+    a_new = []
+    #coordinate compression
+    for x in b:
+        h[x]=i
+        i+=1
+    for i in range(0,len(a)):
+        a_new.append(h[a[i]])
+    N=len(a_new)
+    bit = [0]*(max(a_new)+1)
+    print(countInv(a_new,bit,N))
