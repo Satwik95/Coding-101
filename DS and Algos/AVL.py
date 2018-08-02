@@ -6,18 +6,28 @@ class BSTNode:
         self.height = 1
         
 class AVL_Tree:
+    def __init__(self):
+        self.root=None
     def height(self,root):
         if root==None:
             return -1
         return root.height
     
     def insert(self,root,data):
-        if root==None:
-            return BSTNode(data)
-        if data>root.data:
-            root.right = self.insert(root.right,data)
-        else:
-            root.left = self.insert(root.left,data)
+        if self.root==None:
+            self.root = BSTNode(data)
+            return self.root
+        else:            
+            if data>root.data:
+                if root.right==None:
+                    root.right = BSTNode(data)
+                else:
+                    root.right = self.insert(root.right,data)
+            if root.data>data:
+                if root.left==None:
+                    root.left = BSTMode(data)
+                else:
+                    root.left = self.insert(root.left,data)
 
         root.height = 1 + max(self.height(root.left),
                              self.height(root.right))
@@ -72,6 +82,7 @@ if __name__=="__main__":
     root = myTree.insert(root,40)
     root = myTree.insert(root,50)
     root = myTree.insert(root,25)
+    nodes = [10,20,30,40,50,25]
     myTree.preOrder(root)
         
         
