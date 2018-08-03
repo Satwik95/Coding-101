@@ -65,8 +65,29 @@ class Sort:
             nums[hole]=value
         return nums
 
+    def partition(self,nums,start,end):
+        pIndex = start
+        pivot = end
+        for i in range(start,end):
+            if nums[i]<=nums[pivot]:
+                temp = nums[i]
+                nums[i] = nums[pIndex]
+                nums[pIndex] = temp
+                pIndex+=1
+        temp = nums[pivot]
+        nums[pivot] = nums[pIndex]
+        nums[pIndex] = temp
+        return pIndex
+                
+    def QuickSort(self,nums,start,end):
+        if start<end:
+            pIndex = self.partition(nums,start,end)
+            self.QuickSort(nums,start,pIndex-1)#pindex-1 because that is at the right place already
+            #since bigger elements towards its right, smaller towards its left
+            self.QuickSort(nums,pIndex+1,end)
+
 if __name__=="__main__":
     s = Sort()
     nums = [8,9,4,7,3,6]
-    s.MergeSort(nums)
+    s.QuickSort(nums,0,len(nums)-1)
     print(nums)
