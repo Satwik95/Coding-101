@@ -62,7 +62,7 @@ class HashMap:
                 i+=1
 
 if __name__=="__main__":
-    h = HashMap(10)
+    h = HashMap(11)
     h.add("satwik",20)
     h.add("kiwtas",30)
     h.add("satwik",40)
