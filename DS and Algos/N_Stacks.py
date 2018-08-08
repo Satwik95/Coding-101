@@ -10,7 +10,8 @@ class N_Stacks:
 
     def push_item(self,stack_no,val):
         if stack_no<0 or stack_no>=len(self.top_of_stack):
-            raise NameError("Invalid no of stack!")
+            print("Invalid no of stack!")
+            return
         if self.nextAvailable<0:
             print("Stack Overflow")
             return
@@ -22,7 +23,8 @@ class N_Stacks:
 
     def pop_item(self,stack_no):
         if stack_no<0 or stack_no>=len(self.top_of_stack):
-            raise NameError("Invalid no of stack!")
+            print("Invalid no of stack!")
+            return
         if self.top_of_stack[stack_no]<0:
                   print("Stack Empty!")
                   return        
