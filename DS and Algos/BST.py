@@ -1,5 +1,4 @@
 import sys
-sys.setrecursionlimit(3000)
 class node:
     def __init__(self,data):
         self.data = data
