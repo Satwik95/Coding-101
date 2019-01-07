@@ -16,11 +16,8 @@ class Trie:
         for i in range(0,len(word)):
             ch = word[i]
             if ch not in temp.h:
-                child = node(ch)
-                temp.h[ch] = child
-                temp = child
-            else:
-                temp = temp.h[ch]
+                temp.h[ch] = node(ch)
+            temp = temp.h[ch]
         temp.isTerminal = True
 
     def search(self,word):

@@ -12,5 +12,20 @@ def min_steps_to_one(n):
         dp[i]=res
     return dp[n]
 
-print(min_steps_to_one(10))
-            
+def f(n):
+    if n==1:
+        return 0
+    if dp[n]!=0:
+        return dp[n]
+    dp[n] = 1+f(n-1)
+    if n%3==0:
+        dp[n]=min(dp[n],1+f(int(n/3)))
+    if n%2==0:
+        dp[n]=min(dp[n],1+f(int(n/2)))
+    return dp[n]
+
+if __name__=='__main__':        
+    n=10
+    dp = [0]*(n+1)
+    print(min_steps_to_one(n))
+                

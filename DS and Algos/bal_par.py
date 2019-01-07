@@ -17,7 +17,6 @@ def isBalanced(s):
                 return False
             else:
                 stack.pop()
-    print(stack)
     return True if not stack else False
 
 

@@ -12,7 +12,6 @@ def util(n,m,mid):
                 return False               
         else:
             pages+=n[i]
-        print(count,pages, mid)
     return True
 
 def allocatePage(n,m):

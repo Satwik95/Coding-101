@@ -1,7 +1,7 @@
 class HashMap:
     def __init__(self,size):
         self.size = size
-        self.map = [None]*self.size
+        self.map = [[]]*self.size
         
     def my_hash(self,key):
         res = 0

@@ -25,7 +25,7 @@ class Graph:
         if parent[i]==i:
             return i
         else:
-            return self.find(parent,parent[i])
+            return self.find(parent,parent[i])#recursively find the base parent
             
     def union(self,parent,u,v):
         p1 = self.find(parent,u)
@@ -53,7 +53,7 @@ class Graph:
                 p2 = self.find(parent,v)
                 if p1!=p2:
                     mst.append([u,v,w])
-                    self.union(parent,u,v)
+                    #self.union(parent,u,v)
                         
         print(parent,mst)
                 

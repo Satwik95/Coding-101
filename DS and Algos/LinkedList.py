@@ -37,7 +37,6 @@ class LinkedList:
         temp.next = temp.next.next
         del_node.next = None
 
-    
     def reverse_iterative(self):
         if self.head==None: return
         cur = self.head

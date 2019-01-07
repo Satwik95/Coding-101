@@ -1,5 +1,4 @@
 #credit:https://www.youtube.com/watch?v=utE_1ppU5DY
-
 def leftRotate():
     no_of_set = gcd(n,k)
     for i in range(no_of_set):

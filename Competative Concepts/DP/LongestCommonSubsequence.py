@@ -9,6 +9,7 @@ def LCS(str1,str2):
             else:
                 dp[i][j]=max(dp[i-1][j],dp[i][j-1])
     return dp[m][n]
+
 if __name__=="__main__":
     str1 = input()
     str2 = input()

@@ -25,7 +25,7 @@ class AVL_Tree:
                     root.right = self.insert(root.right,data)
             if root.data>data:
                 if root.left==None:
-                    root.left = BSTMode(data)
+                    root.left = BSTNode(data)
                 else:
                     root.left = self.insert(root.left,data)
 

@@ -18,7 +18,7 @@ top_sort = []
 flag = 0
 def dfs_util(u,visited,parent):
     visited[u] = 1
-    #print(u+"->",end="")
+    print(u+"->",end="")
     for v in Graph[u]:
         if v not in visited:
             parent[v]=u
