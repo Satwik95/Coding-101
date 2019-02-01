@@ -18,9 +18,6 @@ class Graph:
             self.adj_list[u].append([v,w])
             self.adj_matrix[u][v] = w
 
-    def util_sorted(self,x):
-        return x[2]
-
     def find(self,parent,i):
         if parent[i]==i:
             return i
@@ -45,7 +42,7 @@ class Graph:
         #starting from 1st node, not including 0 as a node, will be
         # V if o is included
         parent=[i for i in range(len(self.vertices)+1)]
-        sorted_edges = sorted(self.edge_list,key = self.util_sorted)
+        sorted_edges = sorted(self.edge_list,key = lambda x: x[2])
         mst = []
         for i in range(len(self.vertices)-1):
             for u,v,w in sorted_edges:
@@ -53,9 +50,9 @@ class Graph:
                 p2 = self.find(parent,v)
                 if p1!=p2:
                     mst.append([u,v,w])
-                    #self.union(parent,u,v)
+                    self.union(parent,u,v)
                         
-        print(parent,mst)
+        print(mst)
                 
 if __name__ == '__main__':
 

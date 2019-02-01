@@ -4,15 +4,16 @@ class Subset:
         self.out = out
         self.f = 0
         self.count = 0
-        # self.allCombinations = []
+        self.all = []
 
     def cust_print(self, ar):
         i = 0
         self.count += 1
+        comb = []
         while ar[i] != "\0":
-            print(ar[i], end="")
+            comb.append(ar[i])
             i += 1
-        print("", end=",")
+        self.all.append(comb)
 
     def sub_seq(self, i, j):
         # base case
@@ -22,8 +23,10 @@ class Subset:
             return
         # including
         self.out[j] = self.inp[i]
+        print("including",self.out)
         self.sub_seq(i + 1, j + 1)
         # excluding
+        print("excluding",self.out)
         self.sub_seq(i + 1, j)
 
 
@@ -35,3 +38,4 @@ if __name__ == "__main__":
     out = [""] * len(inp)
     obj = Subset(inp, out)
     obj.sub_seq(0, 0)
+    print(obj.all)
