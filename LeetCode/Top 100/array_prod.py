@@ -17,14 +17,14 @@ class Solution(object):
                 suf.append(suf[-1]*n)
             else:
                 suf.append(n)
-                
+
         suf = suf[::-1]
         print(suf)
         res = []
         for i in range(len(nums)):
             if i== 0:
                 res.append(suf[i+1])
-            if i == len(nums)-1:
+            elif == len(nums)-1:
                 res.append(pre[i-1])
             else:
                 res.append(pre[i-1]*suf[i+1])
