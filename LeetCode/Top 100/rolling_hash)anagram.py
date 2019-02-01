@@ -35,7 +35,7 @@ class Solution(object):
             hs = self.rh_append(map[s[i]][0], self.rh_skip(map[s[i-len(p)]][0], hs))
             print(i, hs, hp)
             if hs == hp:
-                res.append(i)
+                res.append(i-len(p)+1)
         return res
 
 print(Solution().findAnagrams("cbaebabacd", "abc"))
